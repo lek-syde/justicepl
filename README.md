@@ -1,6 +1,6 @@
 # README
 
-JUSTICE PLATFORM
+DISCUSSION PLATFORM FOR NIGERIANS AND LAWYERS
 connecting lawyers with much needed counsel
 
 Ruby based

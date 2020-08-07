@@ -35,6 +35,9 @@ gem 'simple_form', '~> 5.0', '>= 5.0.2'
 # better form generation
 gem 'bulma_form_builder', '~> 0.2.1'
 
+# for user authentication and role management
+gem 'devise', '~> 4.7', '>= 4.7.2'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
