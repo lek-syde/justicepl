@@ -1,10 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+JUSTICE PLATFORM
+connecting lawyers with much needed counsel
 
-Things you may want to cover:
+Ruby based
 
+
+TODO
 * Ruby version
 
 * System dependencies
