@@ -1,27 +1,119 @@
-<%= form_with(model: discussion, local: true) do |form| %>
-  <% if discussion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(discussion.errors.count, "error") %> prohibited this discussion from being saved:</h2>
+<%= simple_form_for(@discussion) do |f| %>
+<%= f.error_notification %>
 
-      <ul>
-        <% discussion.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+
+  <div class="field is-horizontal">
+      <div class="field-label is-normal">
+        <label class="label">Ask your Question</label>
+      </div>
+      <div class="field-body">
+        <div class="field">
+          <div class="control">
+
+      <%= f.input :title,
+          required: true,
+          placeholder: "Start your question with 'how,' 'what,' 'why,' 'when,' 'can I...' 'do I...' or 'will I...'",
+          autofocus: true,
+          input_html: { class: "textarea" },
+          wrapper: false,
+          label_html: {class: "label"}  %>
+
     </div>
-  <% end %>
+  </div>
+</div>
+</div>
 
+<div class="field is-horizontal">
+<div class="field-label is-normal">
+  <label class="label">Explain your situation</label>
+</div>
+<div class="field-body">
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_area :title %>
-  </div>
+    <div class="control">
+      <%= f.input :content,
+          required: true,
+          placeholder: "Provide key details. No need to get it perfect–you can always make clarifications or ask follow-up questions later.",
+          autofocus: true,
+          input_html: { class: "textarea" },
+          wrapper: false,
+          rows:20,
+          label_html: {class: "label"}  %>
 
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- <div class="field is-horizontal">
+<div class="field-label is-normal">
+  <label class="label">City / State</label>
+</div>
+<div class="field-body">
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
+    <div class="control">
+      <input class="input" type="text" placeholder="">
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
   </div>
+</div>
+</div> -->
+
+<!-- <div class="field is-horizontal">
+<div class="field-label is-normal">
+  <label class="label">Department</label>
+</div>
+<div class="field-body">
+  <div class="field is-narrow">
+    <div class="control">
+      <div class="select is-fullwidth">
+        <select>
+          <option>Business development</option>
+          <option>Marketing</option>
+          <option>Sales</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+</div> -->
+
+<!-- <div class="field is-horizontal">
+<div class="field-label">
+  <label class="label">Do you plan to hire a lawyer?</label>
+</div>
+<div class="field-body">
+  <div class="field is-narrow">
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="hirealawyer">
+        Yes
+      </label>
+      <label class="radio">
+        <input type="radio" name="hirealawyer">
+        No
+      </label>
+
+      <label class="radio">
+        <input type="radio" name="hirealawyer">
+        Not sure
+      </label>
+    </div>
+  </div>
+</div>
+</div> -->
+
+<div class="field is-horizontal">
+<div class="field-label">
+  <!-- Left empty for spacing -->
+</div>
+<div class="field-body">
+  <div class="field">
+    <div class="control">
+      <%= f.button :submit, class: "button is-primary" %>
+
+    </div>
+  </div>
+</div>
+</div>
+
 <% end %>

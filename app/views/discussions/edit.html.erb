@@ -1,6 +1,69 @@
-<h1>Editing Discussion</h1>
+<section class="section">
+  <div class="container">
+<div class="content">
+  <h1 class="title ">Ask a question</h1>
+  <p class="subtitle">You can ask anonymously</p>
 
-<%= render 'form', discussion: @discussion %>
 
-<%= link_to 'Show', @discussion %> |
-<%= link_to 'Back', discussions_path %>
+</div>
+
+<div class="container">
+
+
+
+
+  <div class="columns">
+
+  <div class="column">
+
+    <div class="article">
+
+            <!-- START ARTICLE -->
+      <div class="card article">
+          <div class="card-content">
+
+
+            <%= render 'form', discussion: @discussion %>
+
+
+
+          </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div class="column is-one-third is-hidden-touch">
+    <aside class="menu">
+
+
+  <p class="menu-label">
+    Your Account
+  </p>
+  <ul class="menu-list">
+    <li><a>Account Settings</a></li>
+    <li>
+      <a class="is-active">My Asked Questions</a>
+      <ul>
+        <li><a>Saved Questions</a></li>
+        <li><a>Reviews</a></li>
+        <li><a>Ask</a></li>
+      </ul>
+    </li>
+
+  </ul>
+
+
+</aside>
+  </div>
+</div>
+
+
+</div>
+
+
+
+  </div>
+</section>

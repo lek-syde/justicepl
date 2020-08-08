@@ -1,14 +1,106 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @discussion.title %>
-</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @discussion.content %>
-</p>
 
-<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
-<%= link_to 'Back', discussions_path %>
+
+<section class="section">
+  <div class="container">
+<div class="content">
+  <nav class="breadcrumb is-large" aria-label="breadcrumbs">
+    <ul>
+      
+      <li><a href="#">My questions</a></li>
+      <li class="is-active"><a aria-current="page">details</a></li>
+    </ul>
+  </nav>
+
+</div>
+
+<div class="conainer">
+
+
+
+
+  <div class="columns">
+
+    <div class="column">  <div class="article">
+        <article class="media">
+
+          <div class="media-content">
+            <div class="content">
+
+              <p class="subtitle is-5"><span class="title is-1"> Q.</span>
+
+                <%= @discussion.title %>
+                <br>
+                <span class="subtitle is-6">
+                  <%= @discussion.content %>
+                </span>
+
+                <br>
+
+
+                <small class="subtitle is-6"><a>Like</a> · <a>Reply</a> ·   <%= @discussion.created_at %></small>
+              </p>
+            </div>
+
+
+
+
+          </div>
+        </article>
+        <article class="media">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="field">
+              <p class="control">
+                <textarea class="textarea" placeholder="Add a comment..."></textarea>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control">
+                <button class="button">Post comment</button>
+              </p>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+
+
+  <div class="column is-one-third is-hidden-touch">
+    <aside class="menu">
+
+
+  <p class="menu-label">
+    Your Account
+  </p>
+  <ul class="menu-list">
+    <li><a>Account Settings</a></li>
+    <li>
+      <a class="is-active">My Asked Questions</a>
+      <ul>
+        <li><a>Saved Questions</a></li>
+        <li><a>Reviews</a></li>
+        <li><a>Ask</a></li>
+      </ul>
+    </li>
+
+  </ul>
+
+
+</aside>
+  </div>
+</div>
+
+
+</div>
+
+
+
+  </div>
+</section>

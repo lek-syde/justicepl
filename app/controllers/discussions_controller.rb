@@ -1,6 +1,9 @@
 class DiscussionsController < ApplicationController
   before_action :set_discussion, only: [:show, :edit, :update, :destroy]
 
+#on creating/edit/deletion you should be logged in
+  before_action :authenticate_user!, except: [:index, :show]
+
   # GET /discussions
   # GET /discussions.json
   def index
@@ -14,7 +17,9 @@ class DiscussionsController < ApplicationController
 
   # GET /discussions/new
   def new
-    @discussion = Discussion.new
+
+    #ensures the user is loggedin before creating a discussion
+    @discussion = current_user.discussion.build
   end
 
   # GET /discussions/1/edit
@@ -24,7 +29,7 @@ class DiscussionsController < ApplicationController
   # POST /discussions
   # POST /discussions.json
   def create
-    @discussion = Discussion.new(discussion_params)
+    @discussion = current_user.discussion.build(discussion_params)
 
     respond_to do |format|
       if @discussion.save
