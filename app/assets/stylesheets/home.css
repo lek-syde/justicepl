@@ -12,3 +12,18 @@
       background-position: 100%;
 
 }
+
+#notice_wrapper{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+
+    background-color: rgba(30, 130, 76, 0.85);
+}
+#notice_wrapper p{
+    padding: 1.75rem 0;
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+  }

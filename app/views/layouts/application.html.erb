@@ -1,46 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Justicepl</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Justicepl</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+  <script src="https://unpkg.com/bulma-toast"></script>
 
+</head>
 
-  </head>
+<body>
 
-  <body>
+  <% if flash[:notice] %>
+  <div id="notice_wrapper">
+    <p class="notice"><%= notice %></p>
 
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="">
-        <%= image_tag "logo/todojusticee.svg", alt: "black cat", height:"500px" %>
-      </a>
+  </div>
 
+  <% end %>
+
+  <% if flash[:alert] %>
+  <div id="notice_wrapper" class="is-danger global-notification">
+    <p class="alert"><%= alert %></p>
+  </div>
+
+  <% end %>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="">
+      <%= image_tag "logo/todojusticee.svg", alt: "black cat", height:"500px" %>
+    </a>
       <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
+            </a>
+  </div>
     <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" disabled>
+       <div class="navbar-start">
+      <a class="navbar-item" disabled>
 
-        </a>
+      </a>
 
-        <a class="navbar-item">
-          Documentation
-        </a>
+      <a class="navbar-item">
+                  Documentation
+      </a>
 
-        <div class="navbar-item has-dropdown is-hoverable">
+      <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
             Free Q&A and articles
           </a>
@@ -69,30 +87,30 @@
           <%= link_to current_user.email, edit_user_registration_path , class:"navbar-link" %>
 
 
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                        My Messages
-                        </a>
-                        <a class="navbar-item">
-                        Profile
-                        </a>
-                        <a class="navbar-item">
-                        Settings
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                        Logout
-                        </a>
-                    </div>
-                </div>
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              Messages
+            </a>
+            <a class="navbar-item">
+              Profile
+            </a>
+            <a class="navbar-item">
+              Settings
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Logout
+            </a>
+          </div>
+        </div>
 
-                <div class="navbar-item">
-                  <div class="buttons">
-                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"button is-primary" %>
-                </div>
-                </div>
-          <%end%>
-          <% if !user_signed_in? %>
+        <div class="navbar-item">
+          <div class="buttons">
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class:"button is-primary" %>
+          </div>
+        </div>
+        <%end%>
+        <% if !user_signed_in? %>
 
         <div class="navbar-item">
           <div class="buttons">
@@ -106,38 +124,34 @@
     </div>
   </nav>
 
-  <% if flash[:notice] %>
-  <div class="notification is-primary global-notification">
-    <p class="notice"><%= notice %></p>
 
-  </div>
 
-  <% end %>
-
-  <% if flash[:alert] %>
-  <div class="notification is-danger global-notification">
-  <p class="alert"><%= alert %></p>
-  </div>
-
-  <% end %>
-
-    <%= yield %>
+  <%= yield %>
 
 
 
-
-
-    <script type="text/javascript">
-      // The following code is based off a toggle menu by @Bradcomp
-  // source: https://gist.github.com/Bradcomp/a9ef2ef322a8e8017443b626208999c1
-  (function() {
+<script  src="https://code.jquery.com/jquery-3.5.1.min.js"  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    // The following code is based off a toggle menu by @Bradcomp
+    // source: https://gist.github.com/Bradcomp/a9ef2ef322a8e8017443b626208999c1
+    (function() {
       var burger = document.querySelector('.burger');
       var menu = document.querySelector('#'+burger.dataset.target);
       burger.addEventListener('click', function() {
-          burger.classList.toggle('is-active');
-          menu.classList.toggle('is-active');
+        burger.classList.toggle('is-active');
+        menu.classList.toggle('is-active');
       });
-  })();
-    </script>
-  </body>
+
+
+      setTimeout(function () {
+        $('#notice_wrapper').fadeOut("slow", function () {
+        $(this).remove();
+      })
+    }, 2000);
+
+
+    })();
+  </script>
+</body>
 </html>
