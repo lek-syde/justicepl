@@ -5,3 +5,11 @@
   margin: 0px auto;
 
 }
+
+.artimg{
+  background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 99%;
+      background-position-y: 13px;
+
+}
