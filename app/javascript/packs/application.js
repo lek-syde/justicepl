@@ -15,16 +15,3 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-document.addEventListener("turbolinks:load", function() {
-console.log("hi");
-
-function showalert(message){
-bulmaToast.toast({ message: message });
-
-}
-$("#notice").show(function() { 
-    //Do something
-});
-
-});
