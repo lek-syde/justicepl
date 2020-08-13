@@ -1,62 +1,165 @@
+
+
 <section class="section">
-  <div class="container">
-<div class="content">
-  <h1 class="title ">Ask a question</h1>
-  <p class="subtitle">You can ask anonymously</p>
 
 
-</div>
+
 
 <div class="container">
 
 
-
+  <nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Ask a lawyer</a></li>
+      <li class="is-active"><a href="#" aria-current="page"><%= truncate(@discussion.title, :length => 40)  %></a></li>
+    </ul>
+  </nav>
 
   <div class="columns">
 
   <div class="column">
 
-    <div class="article">
+     <div class="article">
+  <article class="message">
+        <div class="message-body">
+          <p><small>Asked on  <%= @discussion.created_at.to_time.strftime('%B %e at %l:%M %p') %></small></p>
+  <%= render 'form', discussion: @discussion %>
 
-            <!-- START ARTICLE -->
-      <div class="card article">
-          <div class="card-content">
-
-
-            <%= render 'form', discussion: @discussion %>
-
+          <nav class="panel">
 
 
-          </div>
+  <!-- <div class="panel-block">
+    <button class="button is-primary is-fullwidth">
+       Answer this question
+    </button>
+  </div> -->
+</nav>
+
+        </div>
+      </article>
+
+
+
+      <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+            <strong>Tim Akpinar </strong>    <br>
+             <small>Answered on Aug 11, 2020</small>
+
+
+        </p>
       </div>
 
+    </div>
 
+  </article>
+
+  <article class="media">
+
+    <div class="media-content ">
+      <div class="content">
+        <p>
+        A Texas attorney could advise best, but your question remains open for two weeks. As a GENERAL matter, it could depend zoning laws, municipal ordinances/codes, and other possible regulations or community guidelines. It sounds like the property is yours, but if you rent, the terms of a lease could also apply. <a href="">Read More...</a>
+        </p>
+      </div>
+
+    </div>
+
+
+
+  </article>
+  <br/>
+  <nav class="panel">
+
+
+  <div class="panel-block">
+
+  <button class="button is-primary is-outlined" ">
+  I agree with this answer
+  </button>
+
+
+  </div>
+  </nav>
+    </div>
+
+<br/>
+
+  <hr/>
+    <div class="article">
+      <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://bulma.io/images/placeholders/128x128.png">
+      </p>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+            <strong>Tim Akpinar </strong>    <br>
+             <small>Answered on Aug 11, 2020</small>
+
+
+        </p>
+      </div>
+
+    </div>
+
+  </article>
+
+
+  <article class="media">
+
+    <div class="media-content ">
+      <div class="field">
+      <p class="control">
+        <textarea class="textarea" placeholder="Add a comment..."></textarea>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control">
+        <button class="button">Post comment</button>
+      </p>
+    </div>
+
+    </div>
+
+
+
+  </article>
     </div>
   </div>
 
 
-  <div class="column is-one-third is-hidden-touch">
-    <aside class="menu">
+  <div class="column is-one-third">
+    <div class="tile is-parent">
 
+      <div class="container">
+    <div class="notification has-text-centered">
+    <div class="content">
+    <h2 class="subtitle">
+    Experts, Ready to help
+    </h2>
 
-  <p class="menu-label">
-    Your Account
-  </p>
-  <ul class="menu-list">
-    <li><a>Account Settings</a></li>
-    <li>
-      <a class="is-active">My Asked Questions</a>
-      <ul>
-        <li><a>Saved Questions</a></li>
-        <li><a>Reviews</a></li>
-        <li><a>Ask</a></li>
-      </ul>
-    </li>
+    <div class="buttons center">
+    <%= link_to "Ask a Question", "/discussions/new", class:"button is-medium  is-primary" %>
 
-  </ul>
+    <button class="button is-medium is-danger">Lawyers -Get Listed Now!</button>
+    </div>
+    </div>
+    <br/>
 
+    </div>
+    </div>
 
-</aside>
+    </div>
   </div>
 </div>
 
@@ -65,5 +168,5 @@
 
 
 
-  </div>
+
 </section>
