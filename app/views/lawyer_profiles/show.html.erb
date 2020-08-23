@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Prefix:</strong>
+  <%= @lawyer_profile.prefix %>
+</p>
+
+<p>
+  <strong>firstname:</strong>
+  <%= @lawyer_profile.firstname %>
+</p>
+
+
+<p>
+  <strong>lastname:</strong>
+  <%= @lawyer_profile.lastname %>
+</p>
+
+
+<p>
+  <strong>middlename:</strong>
+  <%= @lawyer_profile.middlename %>
+</p>
+
+
+<p>
+  <strong>phone:</strong>
+  <%= @lawyer_profile.phone %>
+</p>
+
+<p>
+  <strong>firmname:</strong>
+  <%= @lawyer_profile.firmname %>
+</p>
+
+<%= link_to 'Edit', edit_lawyer_profile_path(@lawyer_profile) %> |
+<%= link_to 'Back', lawyer_profiles_path %>

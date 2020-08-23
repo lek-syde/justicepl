@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
 
+  resources :lawyer_profiles
   devise_for :users
 
   resources :discussions do
     resources :replies
   end
+
+  resources :users do
+    resources :lawyers
+  end
+
+
   root 'home#index'
 
 

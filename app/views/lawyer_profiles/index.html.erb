@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lawyer Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Prefix</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lawyer_profiles.each do |lawyer_profile| %>
+      <tr>
+        <td><%= lawyer_profile.prefix %></td>
+        <td><%= link_to 'Show', lawyer_profile %></td>
+        <td><%= link_to 'Edit', edit_lawyer_profile_path(lawyer_profile) %></td>
+        <td><%= link_to 'Destroy', lawyer_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lawyer Profile', new_lawyer_profile_path %>

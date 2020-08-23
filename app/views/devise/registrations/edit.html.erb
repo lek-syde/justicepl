@@ -3,7 +3,9 @@
      <div class="columns">
        <div class="column is-4 is-offset-2">
          <p class="title">My Directory Profile</p>
-         <p class="subtitle is-4 has-text-grey-light">You have no Lawyer Directory profile.</p>
+         <p class="subtitle is-4 has-text-grey-light">You have no Lawyer Directory profile. </p>
+
+
        </div>
 
        <div class="column is-6 is-offset-2">
@@ -13,9 +15,11 @@
 
              <div class="control">
 
-               <button class="button is-medium is-primary">
-                 <strong>Create Profile</strong>
-               </button>
+
+
+
+                 <%= link_to "Create Profile", new_lawyer_profile_path, class:"button is-medium is-primary" %>
+
              </div>
            </div>
 
@@ -59,7 +63,7 @@
 
           <div class="column is-6 is-offset-2">
             <div class="column">
-                <p class="subtitle is-4 has-text-grey-light">Lekus07@yahoo.com <br/> <a>Change Email</a></p>
+                <p class="subtitle is-4 has-text-grey-light"><%=@user.email%> <br/> <a>Change Email</a></p>
             </div>
 
             <div class="column">
@@ -96,7 +100,7 @@
                    <div class="control">
 
                       <%= link_to "Cancel my account", registration_path(resource_name), class:"button is-medium is-danger", data: { confirm: "Are you sure?" }, method: :delete %>
-                    
+
                    </div>
                  </div>
 

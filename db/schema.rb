@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_204119) do
+ActiveRecord::Schema.define(version: 2020_08_23_151722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,29 @@ ActiveRecord::Schema.define(version: 2020_08_13_204119) do
   create_table "discussions", force: :cascade do |t|
     t.text "title"
     t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+  end
+
+  create_table "lawyer_profiles", force: :cascade do |t|
+    t.string "prefix"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "firstname"
+    t.string "lastname"
+    t.string "middlename"
+    t.string "firmname"
+    t.string "phone"
+  end
+
+  create_table "lawyers", force: :cascade do |t|
+    t.string "prefix"
+    t.string "firstname"
+    t.string "middlename"
+    t.string "lastname"
+    t.text "firmname"
+    t.string "phone"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"

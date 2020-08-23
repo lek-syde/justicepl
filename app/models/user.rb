@@ -5,7 +5,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many:discussion, dependent: :destroy
+  has_many :discussion, dependent: :destroy
 
-  
+  has_many :lawyer
+  accepts_nested_attributes_for :lawyer
+
 end

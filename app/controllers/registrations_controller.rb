@@ -1,7 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  def changeEmail
-  end
+
 
 private
   def sign_up_params
